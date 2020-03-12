@@ -6,7 +6,7 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 /**
- * @Description:
+ * @Description:网站日志统计main函数
  * @Author lyh-god
  * @Date 2020/3/11
  **/
