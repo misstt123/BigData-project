@@ -8,5 +8,45 @@
     <artifactId>Project4_增量追加到HDFS(定时)</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+
+               
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
+        <dependency>
+                       
+            <groupId>org.apache.hadoop</groupId>
+                       
+            <artifactId>hadoop-client</artifactId>
+                       
+            <version>2.7.5</version>
+                   
+        </dependency>
+
+        <dependency>
+                       
+            <groupId>org.apache.hadoop</groupId>
+                       
+            <artifactId>hadoop-hdfs</artifactId>
+                       
+            <version>2.7.5</version>
+                   
+        </dependency>
+               
+        <dependency>
+                       
+            <groupId>org.apache.hadoop</groupId>
+                       
+            <artifactId>hadoop-common</artifactId>
+                       
+            <version>2.7.5</version>
+                   
+        </dependency>
+
+    </dependencies>
 
 </project>
