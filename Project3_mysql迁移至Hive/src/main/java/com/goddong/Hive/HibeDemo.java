@@ -6,4 +6,9 @@ package com.goddong.Hive;
  * @Date 2020/3/13
  **/
 public class HibeDemo {
+    public static void main(String[] args) {
+
+    }
+
+
 }
