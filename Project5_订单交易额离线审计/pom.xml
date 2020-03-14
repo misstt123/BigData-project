@@ -10,39 +10,113 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jdk.version>1.7</jdk.version>
+        <jdk.version>1.8</jdk.version>
+        <spark.version>2.0.2</spark.version>
+        <scala.version>2.11</scala.version>
+        <hadoop.version>2.6.0</hadoop.version>
     </properties>
 
 
 
-
     <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.11.8</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka_${scala.version}</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.39</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase</artifactId>
+            <version>1.1.5</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>1.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-common</artifactId>
+            <version>1.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>1.1.5</version>
+        </dependency>
 
 
-          <dependency>
+<!--        mapreduce 依赖jar包
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
-          </dependency>
+        </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.storm/storm-core -->
-        <!-- https://mvnrepository.com/artifact/storm/storm-core -->
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.storm/storm-core &ndash;&gt;
+        &lt;!&ndash; https://mvnrepository.com/artifact/storm/storm-core &ndash;&gt;
         <dependency>
             <groupId>storm</groupId>
             <artifactId>storm-core</artifactId>
             <version>0.9.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.storm/storm-client -->
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.storm/storm-client &ndash;&gt;
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-client</artifactId>
             <version>2.0.0</version>
             <scope>${provided.scope}</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.storm/storm-kafka -->
- 
-
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.storm/storm-kafka &ndash;&gt;
 
 
         <dependency>
@@ -67,7 +141,7 @@
             <artifactId>storm-kafka</artifactId>
             <version>1.0.2</version>
         </dependency>
-        <!-- kafka -->
+        &lt;!&ndash; kafka &ndash;&gt;
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka_2.11</artifactId>
@@ -94,7 +168,7 @@
             <version>2.11.8</version>
         </dependency>
 
-        <!-- 12-05 Hive-jdbc -->
+        &lt;!&ndash; 12-05 Hive-jdbc &ndash;&gt;
         <dependency>
             <groupId>org.apache.hive</groupId>
             <artifactId>hive-jdbc</artifactId>
@@ -106,7 +180,7 @@
             <version>5.1.40</version>
         </dependency>
 
-        <!-- 12-01 MapReduce -->
+        &lt;!&ndash; 12-01 MapReduce &ndash;&gt;
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-yarn-common</artifactId>
@@ -158,7 +232,7 @@
             <version>2.6.0</version>
         </dependency>
 
-        <!-- 11-30-HDFS -->
+        &lt;!&ndash; 11-30-HDFS &ndash;&gt;
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
@@ -175,7 +249,7 @@
             <version>2.6.0</version>
         </dependency>
 
-        <!-- log4j -->
+        &lt;!&ndash; log4j &ndash;&gt;
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -233,7 +307,7 @@
             <artifactId>spring-data-redis</artifactId>
             <version>1.7.4.RELEASE</version>
         </dependency>
-        <!-- 2016 11 26添加 -->
+        &lt;!&ndash; 2016 11 26添加 &ndash;&gt;
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
@@ -250,13 +324,13 @@
             <artifactId>spymemcached</artifactId>
             <version>2.12.1</version>
         </dependency>
-        <!-- 用于socket通讯 -->
+        &lt;!&ndash; 用于socket通讯 &ndash;&gt;
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.6.Final</version>
         </dependency>
-        <!--用于MBean处理 -->
+        &lt;!&ndash;用于MBean处理 &ndash;&gt;
         <dependency>
             <groupId>org.softee</groupId>
             <artifactId>pojo-mbean</artifactId>
@@ -277,49 +351,8 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 
-    <build>
-        <finalName>tsaPro</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <compilerArguments>
-                        <verbose />
-                        <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath>
-                    </compilerArguments>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>tsa.tradestatistics.StormKafkaProcess</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>
