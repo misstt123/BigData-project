@@ -15,7 +15,7 @@
 * [Project3_mysql迁移至hive](./Project3_mysql迁移至Hive/README.md)
 * [Project4_定时将mysql中的增量打进HDFS](./Project4_增量追加到HDFS定时/README.md)
 * [Project5_订单交易额离线审计](./Project5_订单交易额离线审计/README.md)
-* [Project6_SparkBasic5个小问题]()
+* [Project6_SparkBasic5个小问题](./Project6_SparkBasic5个小问题/README.md)
 * [Project7_HBase]()
 * [Project8_推荐系统入门]()
 * ~~Project9_分布式知乎爬虫~~
