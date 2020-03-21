@@ -10,67 +10,61 @@ import java.util.Map;
 import java.util.NavigableMap;
 
 /**
- * HBase工具类
+ * 连接mysql
  */
 public class HBaseUtil {
     /**
-     * 获得连接
-     *
-     * @return
-     * @throws IOException
+     * @return获取连接
+     * @author lyh-god on
+     * @Description: TODO
      */
     public static Connection getConnection() throws IOException {
         Configuration conf = HBaseConfiguration.create();
-        conf.set("hbase.zookeeper.quorum", "crxy107");
+        conf.set("hbase.zookeeper.quorum", "node01:2181,node02:2181,node03:2181");
         conf.set("hbase.zookeeper.property.clientPort", "2181");
         return ConnectionFactory.createConnection(conf);
+
     }
 
     /**
-     * 创建表
-     *
-     * @param
-     * @param tableNameString
-     * @param columnFamily
-     * @throws IOException
+     * @return void
+     * @author lyh-god on 2020/3/21
+     * @Description: 创建表
      */
     public static void createTable(Connection connection, String tableNameString, String columnFamily) throws IOException {
         Admin admin = connection.getAdmin();
-        TableName tableName = TableName.valueOf(tableNameString); //d2h (data to HBase)
+        TableName tableName = TableName.valueOf(tableNameString);
         HTableDescriptor table = new HTableDescriptor(tableName);
         HColumnDescriptor family = new HColumnDescriptor(columnFamily);
         table.addFamily(family);
-        //判断表是否已经存在
         if (admin.tableExists(tableName)) {
+
             admin.disableTable(tableName);
             admin.deleteTable(tableName);
         }
         admin.createTable(table);
+
+
     }
 
     /**
-     * 获取插入HBase的操作put
-     *
-     * @param rowKeyString
-     * @param familyName
-     * @param columnName
-     * @param columnValue
-     * @return
+     * @return org.apache.hadoop.hbase.client.Put
+     * @author lyh-god on 2020/3/21
+     * @Description: 获取插入HBase的操作put
      */
     public static Put createPut(String rowKeyString, byte[] familyName, String columnName, String columnValue) {
-        byte[] rowKey = rowKeyString.getBytes();
-        Put put = new Put(rowKey);
+        Put put = new Put(rowKeyString.getBytes());
         put.addColumn(familyName, columnName.getBytes(), columnValue.getBytes());
         return put;
+
     }
 
-    /**
-     * 打印HBase查询结果
-     *
-     * @param result
-     */
-    public static void print(Result result) {
-        //result是个四元组<行键，列族，列(标记符)，值>
+    /**打印hbase查询结果
+    * @author lyh-god on 2020/3/21
+    * @Description: 打印Hbase查询结果
+    * @return void
+    */
+    public static void print(Result result){
         byte[] row = result.getRow(); //行键
         NavigableMap<byte[], NavigableMap<byte[], NavigableMap<Long, byte[]>>> map = result.getMap();
         for (Map.Entry<byte[], NavigableMap<byte[], NavigableMap<Long, byte[]>>> familyEntry : map.entrySet()) {
@@ -84,6 +78,11 @@ public class HBaseUtil {
                 }
             }
         }
-
     }
+
+
+
+
+
+
 }
