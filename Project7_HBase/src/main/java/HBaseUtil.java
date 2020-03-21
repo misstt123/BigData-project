@@ -3,6 +3,7 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.*;
 
 import java.io.IOException;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class HBaseUtil {
     /**
      * 创建表
      *
-     * @param admin
+     * @param
      * @param tableNameString
      * @param columnFamily
      * @throws IOException
