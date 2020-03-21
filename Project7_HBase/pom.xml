@@ -11,7 +11,8 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <scala.version>2.11.8</scala.version>
+        <jdk.version>1.8</jdk.version>
+        <!--        <scala.version>2.11.8</scala.version>-->
         <hadoop.version>2.6.5</hadoop.version>
         <jackson.version>2.6.2</jackson.version>
         <encoding>UTF-8</encoding>
@@ -30,11 +31,11 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.scala-lang</groupId>-->
+        <!--            <artifactId>scala-library</artifactId>-->
+        <!--            <version>${scala.version}</version>-->
+        <!--        </dependency>-->
         <!-- apache.commons -->
         <dependency>
             <groupId>org.apache.commons</groupId>
