@@ -44,7 +44,7 @@ public class Data2HBase {
         Connection connection = getConnection();
         String tableNameString = "d2h_table";
         String columnFamily = "d2h_family";
-        createTable(connection, tableNameString, columnFamily)
+        createTable(connection, tableNameString, columnFamily);
         BufferedReader reader = new BufferedReader(new FileReader(new File("hbasedata.txt")));
         String line = null;
         while ((line = reader.readLine()) != null) {
@@ -110,10 +110,10 @@ public class Data2HBase {
         String eDate = split[4];
         Table table = connection.getTable(TableName.valueOf(tableNameString));
         Put put = new Put(Bytes.toBytes(rowKey));
-        put.add(Bytes.toBytes(columnFamily), Bytes.toBytes("name"), Bytes.toBytes(name));
-        put.add(Bytes.toBytes(columnFamily), Bytes.toBytes("address"), Bytes.toBytes(address));
-        put.add(Bytes.toBytes(columnFamily), Bytes.toBytes("sDate"), Bytes.toBytes(sDate));
-        put.add(Bytes.toBytes(columnFamily), Bytes.toBytes("eDate"), Bytes.toBytes(eDate));
+//        put.add(columnFamily.getBytes(), "name",name);
+//        put.add(Bytes.toBytes(columnFamily), Bytes.toBytes("address"), Bytes.toBytes(address));
+//        put.add(Bytes.toBytes(columnFamily), Bytes.toBytes("sDate"), Bytes.toBytes(sDate));
+//        put.add(Bytes.toBytes(columnFamily), Bytes.toBytes("eDate"), Bytes.toBytes(eDate));
         table.put(put);
         //关闭表
         table.close();
