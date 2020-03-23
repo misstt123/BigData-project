@@ -20,7 +20,7 @@
 * [Project5_订单交易额离线审计](./Project5_订单交易额离线审计/README.md)
 * [Project6_SparkBasic5个小问题](./Project6_SparkBasic5个小问题/README.md)
 * [Project7_HBase](./Project7_HBase/README.md)
-* [Project8_推荐系统入门]()
-* ~~Project9_分布式知乎爬虫~~
+* [Project8_推荐系统入门](./Project8_推荐系统入门/READMD.md)
+* [Project9_分布式知乎爬虫](./Project9_分布式知乎爬虫/READMD.md)
 
 ### :soon:未完，待续  ...
