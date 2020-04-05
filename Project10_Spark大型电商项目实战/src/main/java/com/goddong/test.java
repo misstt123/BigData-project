@@ -6,9 +6,12 @@ package com.goddong;
  * @Date 2020/4/4
  **/
 public class test {
+    public static void main(String[] args) {
+        dataenc("08ddd9f8-69c1-4900-9e9e-dc211a32989e");
+    }
 
     public static String dataenc(String jqnonce) {
-        int ktime = 365;
+        int ktime = 123;
         // 模拟js算出jqsign
         StringBuffer g = new StringBuffer();
         String d[] = new String[]{};
@@ -21,14 +24,14 @@ public class test {
 
             int f = Integer.valueOf(unicodeValue.toString()).intValue() ^ b;
 
-            if (c != 0) {
-                g.append(",");
-            }
-            g.append(String.valueOf(f));
-            String h = asciiToString(g.toString());
-
+//            if (c != 0) {
+//                g.append(",");
+//            }
+//            g.append(String.valueOf(f));
+            String h = asciiToString(String.valueOf(f));
+            g.append(h);
         }
-        String jqsign = d.toString();
+        String jqsign = g.toString();
         System.out.println( "jqnonce  " + jqnonce + "  jqsign  " + jqsign);
         return jqsign;
     }
