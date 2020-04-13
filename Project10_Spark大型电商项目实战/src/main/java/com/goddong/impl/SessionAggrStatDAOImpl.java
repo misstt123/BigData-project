@@ -1,8 +1,9 @@
 package com.goddong.impl;
 
-import com.erik.sparkproject.dao.ISessionAggrStatDAO;
-import com.erik.sparkproject.domain.SessionAggrStat;
-import com.erik.sparkproject.jdbc.JDBCHelper;
+
+import com.goddong.dao.ISessionAggrStatDAO;
+import com.goddong.domain.SessionAggrStat;
+import com.goddong.jdbc.JDBCHelper;
 
 /**
  * session聚合统计实现类 

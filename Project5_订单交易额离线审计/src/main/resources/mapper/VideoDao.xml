@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goddong.video_all.dao.VideoDao">
+
+    <resultMap type="com.goddong.video_all.entity.Video" id="VideoMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="desp" column="desp" jdbcType="VARCHAR"/>
+        <result property="danmu" column="danmu" jdbcType="INTEGER"/>
+        <result property="coin" column="coin" jdbcType="INTEGER"/>
+        <result property="dislike" column="dislike" jdbcType="INTEGER"/>
+        <result property="favorite" column="favorite" jdbcType="INTEGER"/>
+        <result property="hisRank" column="his_rank" jdbcType="INTEGER"/>
+        <result property="likeCount" column="like_count" jdbcType="INTEGER"/>
+        <result property="nowRank" column="now_rank" jdbcType="INTEGER"/>
+        <result property="reply" column="reply" jdbcType="INTEGER"/>
+        <result property="share" column="share" jdbcType="INTEGER"/>
+        <result property="view" column="view" jdbcType="INTEGER"/>
+        <result property="danmuku" column="danmuku" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="VideoMap">
+        select
+          id, title, desp, danmu, coin, dislike, favorite, his_rank, like_count, now_rank, reply, share, view, danmuku
+        from bsite.video
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="VideoMap">
+        select
+          id, title, desp, danmu, coin, dislike, favorite, his_rank, like_count, now_rank, reply, share, view, danmuku
+        from bsite.video
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="VideoMap">
+        select
+          id, title, desp, danmu, coin, dislike, favorite, his_rank, like_count, now_rank, reply, share, view, danmuku
+        from bsite.video
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="desp != null and desp != ''">
+                and desp = #{desp}
+            </if>
+            <if test="danmu != null">
+                and danmu = #{danmu}
+            </if>
+            <if test="coin != null">
+                and coin = #{coin}
+            </if>
+            <if test="dislike != null">
+                and dislike = #{dislike}
+            </if>
+            <if test="favorite != null">
+                and favorite = #{favorite}
+            </if>
+            <if test="hisRank != null">
+                and his_rank = #{hisRank}
+            </if>
+            <if test="likeCount != null">
+                and like_count = #{likeCount}
+            </if>
+            <if test="nowRank != null">
+                and now_rank = #{nowRank}
+            </if>
+            <if test="reply != null">
+                and reply = #{reply}
+            </if>
+            <if test="share != null">
+                and share = #{share}
+            </if>
+            <if test="view != null">
+                and view = #{view}
+            </if>
+            <if test="danmuku != null and danmuku != ''">
+                and danmuku = #{danmuku}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into bsite.video(title, desp, danmu, coin, dislike, favorite, his_rank, like_count, now_rank, reply, share, view, danmuku)
+        values (#{title}, #{desp}, #{danmu}, #{coin}, #{dislike}, #{favorite}, #{hisRank}, #{likeCount}, #{nowRank}, #{reply}, #{share}, #{view}, #{danmuku})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update bsite.video
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="desp != null and desp != ''">
+                desp = #{desp},
+            </if>
+            <if test="danmu != null">
+                danmu = #{danmu},
+            </if>
+            <if test="coin != null">
+                coin = #{coin},
+            </if>
+            <if test="dislike != null">
+                dislike = #{dislike},
+            </if>
+            <if test="favorite != null">
+                favorite = #{favorite},
+            </if>
+            <if test="hisRank != null">
+                his_rank = #{hisRank},
+            </if>
+            <if test="likeCount != null">
+                like_count = #{likeCount},
+            </if>
+            <if test="nowRank != null">
+                now_rank = #{nowRank},
+            </if>
+            <if test="reply != null">
+                reply = #{reply},
+            </if>
+            <if test="share != null">
+                share = #{share},
+            </if>
+            <if test="view != null">
+                view = #{view},
+            </if>
+            <if test="danmuku != null and danmuku != ''">
+                danmuku = #{danmuku},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from bsite.video where id = #{id}
+    </delete>
+
+</mapper>
