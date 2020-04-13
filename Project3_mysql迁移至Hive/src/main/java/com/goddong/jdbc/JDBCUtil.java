@@ -1,4 +1,4 @@
-package com.goddong.JDBC;
+package com.goddong.jdbc;
 
 import java.sql.*;
 import java.util.ArrayList;

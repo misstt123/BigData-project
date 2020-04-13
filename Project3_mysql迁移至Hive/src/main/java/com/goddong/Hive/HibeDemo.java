@@ -1,10 +1,8 @@
 package com.goddong.Hive;
 
-import com.goddong.JDBC.JDBCUtil;
-import groovy.sql.Sql;
+import com.goddong.jdbc.JDBCUtil;
 import org.apache.hadoop.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.math3.stat.descriptive.moment.Mean;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
