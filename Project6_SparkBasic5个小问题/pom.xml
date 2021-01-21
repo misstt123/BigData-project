@@ -14,7 +14,7 @@
         <scala.version>2.11.8</scala.version>
         <spark.version>2.1.0</spark.version>
         <hadoop.version>2.6.5</hadoop.version>
-        <jackson.version>2.6.2</jackson.version>
+        <jackson.version>2.12.1</jackson.version>
         <encoding>UTF-8</encoding>
     </properties>
 
